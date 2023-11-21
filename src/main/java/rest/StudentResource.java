@@ -11,6 +11,8 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 
+import java.util.List;
+
 @Path("student")
 @Produces({"application/json", "application/xml"})
 public class StudentResource {
@@ -25,8 +27,8 @@ public class StudentResource {
 
     @GET
     @Path("/")
-    public Student getStudent(Long studentId)  {
-        return new Student();
+    public List<Student> getAllStudents()  {
+        return studentDao.findAll();
     }
 
 

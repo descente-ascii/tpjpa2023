@@ -11,6 +11,8 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 
+import java.util.List;
+
 @Path("appointment")
 @Produces({"application/json", "application/xml"})
 public class AppointmentResource {
@@ -25,8 +27,8 @@ public class AppointmentResource {
 
     @GET
     @Path("/")
-    public Appointment getAppointment(Long appointmentId)  {
-        return new Appointment();
+    public List<Appointment> getAllAppointments()  {
+        return appointmentDao.findAll();
     }
 
 
