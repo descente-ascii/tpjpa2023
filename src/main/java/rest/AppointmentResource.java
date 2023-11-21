@@ -27,7 +27,7 @@ public class AppointmentResource {
 
     @GET
     @Path("/")
-    public List<Appointment> getAllAppointment()  {
+    public List<Appointment> getAllAppointments()  {
         return appointmentDao.findAll();
     }
 

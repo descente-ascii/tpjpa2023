@@ -40,7 +40,7 @@ Le SDK utilisé est openjdk-19 (java version 19.0.2).
 Je n'ai pas créé de JAR pour ce projet, pour le lancer il suffit de lancer le main de **com.taa.app.ApplicationTP3**.
 Le back est relié au serveur HSQL contenu à la racine du projet (mvnw pour Linux et run-hsqldb-server.bat pour Windows)
 
-Le serveur écoute sur le **port 8080**.
+Le serveur écoute sur le **port 8080**. Le user est "sa" sans guillemets et il n'y a pas de mot de passe.
 
 ## Requêtes HTTP (Insomnia)
 Pour faciliter vos tests, vous pouvez importer le fichier XXX situé à la racine dans Insomnia. Il contient un

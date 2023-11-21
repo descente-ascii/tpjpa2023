@@ -27,7 +27,7 @@ public class StudentResource {
 
     @GET
     @Path("/")
-    public List<Student> getAllStudent()  {
+    public List<Student> getAllStudents()  {
         return studentDao.findAll();
     }
 

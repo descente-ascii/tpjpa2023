@@ -27,7 +27,7 @@ public class TeacherResource {
 
     @GET
     @Path("/")
-    public List<Teacher> getAllTeacher(Long teacherId)  {
+    public List<Teacher> getAllTeachers(Long teacherId)  {
         return teacherDao.findAll();
     }
 
