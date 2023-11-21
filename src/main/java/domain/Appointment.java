@@ -44,7 +44,7 @@ public class Appointment implements Serializable {
     }
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference(value="user-student")
     public Student getStudent() {
         return this.student;
     }
@@ -53,7 +53,7 @@ public class Appointment implements Serializable {
     }
 
     @ManyToOne
-    @JsonBackReference
+    @JsonBackReference(value="user-teacher")
     public Teacher getTeacher(){return this.teacher;}
 
     public void setTeacher(Teacher teacher) {

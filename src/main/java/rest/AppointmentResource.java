@@ -3,12 +3,7 @@ package rest;
 import dao.AppointmentDAO;
 import domain.Appointment;
 import io.swagger.v3.oas.annotations.Parameter;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
@@ -19,14 +14,13 @@ public class AppointmentResource {
 
     AppointmentDAO appointmentDao = new AppointmentDAO();
     @GET
-    @Path("/{appointmentId}")
+    @Path("{appointmentId}")
     public Appointment getAppointmentById(@PathParam("appointmentId") Long appointmentId)  {
-        // return pet
+        // return appointment
         return (Appointment) appointmentDao.findOne(appointmentId);
     }
 
     @GET
-    @Path("/")
     public List<Appointment> getAllAppointments()  {
         return appointmentDao.findAll();
     }
@@ -45,13 +39,14 @@ public class AppointmentResource {
         return Response.ok().entity("SUCCESS").build();
     }
 
-    @POST
+    @DELETE
+    @Path("{id}")
     @Consumes("application/json")
-    public Response deleteAppointment(
-            @Parameter(description = "Appointment object that needs to be added to the store", required = true) Appointment appointment) {
-        // add appointment
+    public Response deleteAppointment(@PathParam("id") Long appointmentId) {
+        // delete appointment
         try{
-            appointmentDao.delete(appointment);
+            Appointment appointmentToDelete = (Appointment) appointmentDao.findOne(appointmentId);
+            appointmentDao.delete(appointmentToDelete);
         } catch(Exception e) {
             e.printStackTrace();
         }

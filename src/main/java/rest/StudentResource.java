@@ -3,12 +3,7 @@ package rest;
 import dao.StudentDAO;
 import domain.Student;
 import io.swagger.v3.oas.annotations.Parameter;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
@@ -19,14 +14,13 @@ public class StudentResource {
 
     private StudentDAO studentDao = new StudentDAO();
     @GET
-    @Path("/{studentId}")
+    @Path("{studentId}")
     public Student getStudentById(@PathParam("studentId") Long studentId)  {
         // return student
         return (Student) studentDao.findOne(studentId);
     }
 
     @GET
-    @Path("/")
     public List<Student> getAllStudents()  {
         return studentDao.findAll();
     }
@@ -45,13 +39,15 @@ public class StudentResource {
         return Response.ok().entity("SUCCESS").build();
     }
 
-    @POST
+    @DELETE
+    @Path("{id}")
     @Consumes("application/json")
     public Response deleteStudent(
-            @Parameter(description = "Student object that needs to be added to the store", required = true) Student student) {
+            @PathParam("id") Long studentId) {
         // add student
         try{
-            studentDao.delete(student);
+            Student studentToDelete = (Student) studentDao.findOne(studentId);
+            studentDao.delete(studentToDelete);
         } catch(Exception e) {
             e.printStackTrace();
         }

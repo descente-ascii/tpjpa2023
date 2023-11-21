@@ -3,12 +3,7 @@ package rest;
 import dao.TeacherDAO;
 import domain.Teacher;
 import io.swagger.v3.oas.annotations.Parameter;
-import jakarta.ws.rs.Consumes;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.PathParam;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
@@ -19,15 +14,14 @@ public class TeacherResource {
 
     TeacherDAO teacherDao = new TeacherDAO();
     @GET
-    @Path("/{teacherId}")
+    @Path("{teacherId}")
     public Teacher getTeacherById(@PathParam("teacherId") Long teacherId)  {
         // return pet
         return (Teacher) teacherDao.findOne(teacherId);
     }
 
     @GET
-    @Path("/")
-    public List<Teacher> getAllTeachers(Long teacherId)  {
+    public List<Teacher> getAllTeachers()  {
         return teacherDao.findAll();
     }
 
@@ -45,13 +39,15 @@ public class TeacherResource {
         return Response.ok().entity("SUCCESS").build();
     }
 
-    @POST
+    @DELETE
+    @Path("{id}")
     @Consumes("application/json")
     public Response deleteTeacher(
-            @Parameter(description = "Teacher object that needs to be added to the store", required = true) Teacher teacher) {
+            @PathParam("id") Long teacherId) {
         // add teacher
         try{
-            teacherDao.delete(teacher);
+            Teacher teacherToDelete = (Teacher) teacherDao.findOne(teacherId);
+            teacherDao.delete(teacherToDelete);
         } catch(Exception e) {
             e.printStackTrace();
         }
