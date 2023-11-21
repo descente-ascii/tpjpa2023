@@ -1,9 +1,9 @@
 package jpa;
 
 
-import dao.DaoAppointment;
-import dao.DaoStudent;
-import dao.DaoTeacher;
+import dao.AppointmentDAO;
+import dao.StudentDAO;
+import dao.TeacherDAO;
 import domain.Appointment;
 import domain.Person;
 import domain.Student;
@@ -12,8 +12,6 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 
 import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.ArrayList;
 import java.util.List;
 
 public class JpaTest {
@@ -31,9 +29,9 @@ public class JpaTest {
 		tx.begin();
 
 		// Create all DAO
-		DaoTeacher teacherDao = new DaoTeacher();
-		DaoStudent studentDao = new DaoStudent();
-		DaoAppointment appointmentDao = new DaoAppointment();
+		TeacherDAO teacherDao = new TeacherDAO();
+		StudentDAO studentDao = new StudentDAO();
+		AppointmentDAO appointmentDao = new AppointmentDAO();
 
 		// Create entities
 		Person teach1 = new Teacher("INRIA");

@@ -1,6 +1,6 @@
 package rest;
 
-import dao.DaoAppointment;
+import dao.AppointmentDAO;
 import domain.Appointment;
 import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.ws.rs.Consumes;
@@ -17,7 +17,7 @@ import java.util.List;
 @Produces({"application/json", "application/xml"})
 public class AppointmentResource {
 
-    DaoAppointment appointmentDao = new DaoAppointment();
+    AppointmentDAO appointmentDao = new AppointmentDAO();
     @GET
     @Path("/{appointmentId}")
     public Appointment getAppointmentById(@PathParam("appointmentId") Long appointmentId)  {

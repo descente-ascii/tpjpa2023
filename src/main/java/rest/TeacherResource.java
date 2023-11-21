@@ -1,6 +1,6 @@
 package rest;
 
-import dao.DaoTeacher;
+import dao.TeacherDAO;
 import domain.Teacher;
 import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.ws.rs.Consumes;
@@ -17,7 +17,7 @@ import java.util.List;
 @Produces({"application/json", "application/xml"})
 public class TeacherResource {
 
-    DaoTeacher teacherDao = new DaoTeacher();
+    TeacherDAO teacherDao = new TeacherDAO();
     @GET
     @Path("/{teacherId}")
     public Teacher getTeacherById(@PathParam("teacherId") Long teacherId)  {

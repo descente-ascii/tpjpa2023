@@ -2,8 +2,8 @@ package dao;
 
 import domain.Appointment;
 
-public class DaoAppointment extends AbstractJpaDao{
-    public DaoAppointment(){
+public class AppointmentDAO extends AbstractJpaDao{
+    public AppointmentDAO(){
         setClazz(Appointment.class);
     }
 }

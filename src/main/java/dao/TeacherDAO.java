@@ -2,9 +2,9 @@ package dao;
 
 import domain.Teacher;
 
-public class DaoTeacher extends AbstractJpaDao{
+public class TeacherDAO extends AbstractJpaDao{
 
-    public DaoTeacher(){
+    public TeacherDAO(){
         setClazz(Teacher.class);
     }
 
