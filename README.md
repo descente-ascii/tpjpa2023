@@ -1,4 +1,4 @@
-# spring_boot_tp
+# JPA_tp
 ### Florian Alphonzair - ILA
 
 Ce repository contient une implémentation du projet de TAA avec JPA, contenant un domaine basique et des DAO.
