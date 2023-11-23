@@ -37,7 +37,7 @@ La partie SpringBoot, KeyCloak et autre se situe sur cet autre repository : http
 
 ## Installation et lancement
 Le SDK utilisé est openjdk-19 (java version 19.0.2).
-Je n'ai pas créé de JAR pour ce projet, pour le lancer il suffit de lancer le main de **RestServer** situé à la racine du projet.
+Je n'ai pas créé de JAR pour ce projet, pour le lancer il suffit de lancer le main de **src.main.java.RestServer**.
 Le back est relié au serveur HSQL contenu à la racine du projet (mvnw pour Linux et run-hsqldb-server.bat pour Windows)
 
 Le serveur écoute sur le **port 8080**. Le user est "sa" sans guillemets et il n'y a pas de mot de passe.
