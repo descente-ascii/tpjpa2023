@@ -43,7 +43,7 @@ Le back est relié au serveur HSQL contenu à la racine du projet (mvnw pour Lin
 Le serveur écoute sur le **port 8080**. Le user est "sa" sans guillemets et il n'y a pas de mot de passe.
 
 ## Requêtes HTTP (Insomnia)
-Pour faciliter vos tests, vous pouvez importer le fichier Insomnia_jpa_test_requests.json
+Pour faciliter vos tests, vous pouvez importer dans Insomnia le fichier Insomnia_jpa_test_requests.json
 situé à la racine du projet. Il contient un ensemble de requêtes HTTP couvrant l'ensemble des fonctionnalités de cette API.
 Pour le moment, il réside encore quelques erreurs dans l'API : les endpoints de Appointment retournent tous 404 not found,
 lorsque l'on tente de delete une Person qui est présente dans Appointment une erreur surgit (foreign key no action)...
